@@ -1,0 +1,30 @@
+apr-1.5.1-ia64-11.31.depot.gz          libgpg_error-1.19-ia64-11.31.depot.gz
+apr_util-1.5.4-ia64-11.31.depot.gz     libiconv-1.14-ia64-11.31.depot.gz
+bash-4.3.033-ia64-11.31.depot.gz       libidn-1.30-ia64-11.31.depot.gz
+bison-2.7.1-ia64-11.31.depot.gz        libpng-1.6.8-ia64-11.31.depot.gz
+bzip2-1.0.6-ia64-11.31.depot.gz        libtasn1-4.5-ia64-11.31.depot.gz
+curl-7.42.0-ia64-11.31.depot.gz        lzo-2.09-ia64-11.31.depot.gz
+cyrus_sasl-2.1.26-ia64-11.31.depot.gz  m4-1.4.17-ia64-11.31.depot.gz
+db-6.0.20-ia64-11.31.depot.gz          ncurses-5.9-ia64-11.31.depot.gz
+editline-2.9-ia64-11.31.depot.gz       nettle-2.7.1-ia64-11.31.depot.gz
+expat-2.1.0-ia64-11.31.depot.gz        openldap-2.4.40-ia64-11.31.depot.gz
+file-5.22-ia64-11.31.depot.gz          openssl-1.0.2a-ia64-11.31.depot.gz
+flex-2.5.39-ia64-11.31.depot.gz        p11_kit-0.23.1-ia64-11.31.depot.gz
+fontconfig-2.11.1-ia64-11.31.depot.gz  packages-ia64-11.31.gz
+freetype-2.5.5-ia64-11.31.depot.gz     pcre-8.36-ia64-11.31.depot.gz
+gcc-4.2.3-ia64-11.31.depot.gz          perl-5.10.1-ia64-11.31.depot.gz
+gdbm-1.10-ia64-11.31.depot.gz          popt-1.16-ia64-11.31.depot.gz
+gettext-0.19.4-ia64-11.31.depot.gz     readline-6.3.008-ia64-11.31.depot.gz
+git-2.3.6-ia64-11.31.depot.gz          regex-0.12-ia64-11.31.depot.gz
+gmp-5.0.5-ia64-11.31.depot.gz          rsync-3.1.1-ia64-11.31.depot.gz
+gnutls-3.3.14-ia64-11.31.depot.gz      serf-1.3.8-ia64-11.31.depot.gz
+heimdal-1.5.2-ia64-11.31.depot.gz      sqlite-3.8.9-ia64-11.31.depot.gz
+installed_packages.txt                 subversion-1.8.5-ia64-11.31.depot.gz
+ldns-1.6.17-ia64-11.31.depot.gz        sudo-1.8.9p1-ia64-11.31.depot.gz
+less-458-ia64-11.31.depot.gz           tcltk-8.5.18-ia64-11.31.depot.gz
+libXft-2.3.2-ia64-11.31.depot.gz       termcap-1.3.1-ia64-11.31.depot.gz
+libXrender-0.9.8-ia64-11.31.depot.gz   unbound-1.5.3-ia64-11.31.depot.gz
+libffi-3.2.1-ia64-11.31.depot.gz       wget-1.16.3-ia64-11.31.depot.gz
+libgcc-4.2.3-ia64-11.31.depot.gz       zlib-1.2.8-ia64-11.31.depot.gz
+libgcrypt-1.6.3-ia64-11.31.depot.gz
+
