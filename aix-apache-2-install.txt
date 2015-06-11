@@ -1,0 +1,71 @@
+## Apache 2 Install ##
+
+Trying different (newer) version. Package and dependencies found here: 
+http://www.perzl.org/aix/index.php?n=Main.Apache
+
+downloading to ~/cogilvie/pkgs/apache-2
+
+It has many dependencies:
+error: failed dependencies:
+        apr-util >= 1.3.10-3 is needed by httpd-2.4.10-1
+        apr-util-ldap >= 1.3.10-3 is needed by httpd-2.4.10-1
+        db4 >= 4.7.25-2 is needed by httpd-2.4.10-1
+        openssl >= 1.0.1h-1 is needed by httpd-2.4.10-1
+        pcre >= 7.9-2 is needed by httpd-2.4.10-1
+        libaprutil-1.so is needed by httpd-2.4.10-1
+        libdb-4.7.so is needed by httpd-2.4.10-1
+        liblber.a(liblber-2.4.so.2) is needed by httpd-2.4.10-1
+        libldap.a(libldap-2.4.so.2) is needed by httpd-2.4.10-1
+        libpcre.a(libpcre.so.0) is needed by httpd-2.4.10-1
+
+Getting dependencies:
+apr-util
+apr-util-ldap -> needs
+openldap
+db4 -> problems:
+
+bash-4.3# rpm -hUv db4-4.7.25-2.aix5.1.ppc.rpm 
+file /opt/freeware/lib/libdb-4.so from install of db4-4.7.25-2 conflicts with file from package db-4.8.24-4
+file /opt/freeware/lib/libdb.a from install of db4-4.7.25-2 conflicts with file from package db-4.8.24-4
+file /opt/freeware/lib/libdb.so from install of db4-4.7.25-2 conflicts with file from package db-4.8.24-4
+file /opt/freeware/lib/libdb-4.a from install of db4-4.7.25-2 conflicts with file from package db-4.8.24-4
+
+So - using the --replacefiles option. If all is broken later, uninstall both packages and re-install the original from batch2 which is db-4.8.24-4
+
+httpd-2.4.10-1.aix5.1.ppc.rpm works at this point, however no ssl / port 443 support is in the package. Adding mod-ssl package.
+
+Start error:
+bash-4.3# /opt/freeware/sbin/apachectl start
+AH00526: Syntax error on line 78 of /opt/freeware/etc/httpd/conf/extra/httpd-ssl.conf:
+SSLSessionCache: 'shmcb' session cache not supported (known names: ). Maybe you need to load the appropriate socache module (mod_socache_shmcb?).
+
+vi /opt/freeware/etc/httpd/conf/httpd.conf
+uncomment line 94
+LoadModule socache_shmcb_module /opt/freeware/lib/httpd/modules/mod_socache_shmcb.so
+/opt/freeware/sbin/apachectl start
+
+Works on port 80 and 443
+
+Now to figure out of my replacing db lib files will break everything…
+rpm -e --nodeps db4
+Removing  db4-4.7.25-2 causes apache to fail to start:
+Dependent module libdb-4.7.so could not be loaded.
+So we need that file:
+bash-4.3# find / -name libdb-4.7.so -print
+/opt/freeware/lib/libdb-4.7.so    (Saved to libdb-4.7.so.keep)
+/opt/freeware/lib64/libdb-4.7.so    (Saved to libdb-4.7.so.keep)
+/usr/lib/libdb-4.7.so  libdb-4.7.so -> ../../opt/freeware/lib/libdb-4.7.so
+/usr/lib64/libdb-4.7.so  libdb-4.7.so -> ../../opt/freeware/lib64/libdb-4.7.so
+Remove db4-4.7.25-2 again after saving needed files.
+mv /opt/freeware/lib/libdb-4.7.so.keep /opt/freeware/lib/libdb-4.7.so
+mv /opt/freeware/lib64/libdb-4.7.so.keep /opt/freeware/lib64/libdb-4.7.so
+ln -s /opt/freeware/lib/libdb-4.7.so /usr/lib/libdb-4.7.so
+ln -s /opt/freeware/lib64/libdb-4.7.so /usr/lib64/libdb-4.7.so
+RESULT: apache starts and db4-4.7.25-2 is not installed
+Remove db-4.8.24-4 and re-install to get back --replacefiles option files
+rpm -e --nodeps db
+Test apache without db-4.8.24-4: WORKS
+Reinstall db-4.8.24-4: rpm -hUv db-4.8.24-4.aix6.1.ppc.rpm
+Test apache with db-4.8.24-4: WORKS
+FYI: db-4.8.24-4 was needed by krb5, and python
+
