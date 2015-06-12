@@ -1,0 +1,36 @@
+## Apache Install ##
+
+/opt/csw/bin/pkgutil -y -i apache24
+
+Config files:
+/etc/opt/csw/apache2/httpd.conf
+/etc/opt/csw/apache2/extra/httpd-ssl.conf
+httpd.conf:
+Uncomment line 89
+LoadModule socache_shmcb_module lib/apache2/modules/mod_socache_shmcb.so
+
+Uncomment line 143 of httpd.conf
+LoadModule ssl_module lib/apache2/modules/mod_ssl.so
+
+Change line 180 / 181
+User noaccess
+Group noaccess
+
+Uncomment line 502
+Include /etc/opt/csw/apache2/extra/httpd-ssl.conf
+
+Httpd-ssl.conf: (TLS1.2 Thing)
+
+Comment out line 48
+#SSLCipherSuite HIGH:MEDIUM:!aNULL:!MD5
+
+Add above SSLCipherSuite line (line 60)
+SSLProtocol -ALL +TLSv1.2
+
+Uncomment lines 61/62:
+SSLCipherSuite RC4-SHA:AES128-SHA:HIGH:MEDIUM:!aNULL:!MD5
+SSLHonorCipherOrder on
+
+/opt/csw/sbin/apachectl
+DocumentRoot: /var/opt/csw/apache2/htdocs
+
