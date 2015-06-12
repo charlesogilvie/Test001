@@ -1,3 +1,4 @@
+## Package List -
 libiconv-1.14-2.aix5.1.ppc.rpm
 rsync-3.1.1-1.aix5.1.ppc.rpm
 gcc-4.2.0-3.aix6.1.ppc.rpm
@@ -39,3 +40,14 @@ sqlite-3.7.15.2-2.aix6.1.ppc.rpm
 libiconv-1.14-1.aix6.1.ppc.rpm
 popt-1.16-2.aix6.1.ppc.rpm
 gmp-5.1.3-1.aix6.1.ppc.rpm
+zlib-devel-1.2.5-6.aix6.1.ppc.rpm
+
+## Apache-2 Install pkgs - From perzl.org ##
+apr-util-1.5.4-1.aix5.1.ppc.rpm
+mod_ssl-2.4.10-1.aix5.1.ppc.rpm
+apr-util-ldap-1.5.4-1.aix5.1.ppc.rpm
+openldap-2.4.23-0.3.aix5.1.ppc.rpm
+db4-4.7.25-2.aix5.1.ppc.rpm
+openssl-1.0.1j-1.aix5.1.ppc.rpm
+httpd-2.4.10-1.aix5.1.ppc.rpm
+pcre-8.35-1.aix5.1.ppc.rpm

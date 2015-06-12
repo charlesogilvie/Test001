@@ -1,3 +1,4 @@
+## Package list - 
 bzip2-1.0.6-2.aix6.1.ppc.rpm
 bison-1.875-3.aix5.1.ppc.rpm
 automake-1.11.1-1.aix6.1.noarch.rpm
@@ -39,3 +40,4 @@ sed-4.2.1-4.aix6.1.ppc.rpm
 rsync-3.1.1-1.aix5.1.ppc.rpm
 readline-6.2-3.aix6.1.ppc.rpm
 gmp-5.1.3-1.aix6.1.ppc.rpm
+zlib-devel-1.2.5-6.aix6.1.ppc.rpm
