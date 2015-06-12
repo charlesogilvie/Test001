@@ -3,6 +3,9 @@ pkgadd -d http://get.opencsw.org/now
 /opt/csw/bin/pkgutil -U
 /opt/csw/bin/pkgutil -y -i git 
 /opt/csw/bin/pkgutil -y -i findutils
+/opt/csw/bin/gupdatedb
+/opt/csw/bin/pkgutil -a vim
+/opt/csw/bin/pkgutil -y -i vim
 /usr/sbin/pkgchk -L CSWgit # list files
 
 git is in /opt/csw/bin
@@ -18,5 +21,18 @@ echo "PS1='$PS1'" >> ~/.bashrc
 echo '[[ -r ~/.bashrc ]] && source ~/.bashrc' >> ~/.bash_profile
 
 
+## /etc/default/login ##
+
 
 PATH=/opt/csw/gnu:/opt/csw/sbin:/opt/csw/bin:/usr/sbin:/usr/bin:/usr/sfw/bin:/opt/solarisstudio12.4/bin:/usr/ccs/bin:/usr/local/bin:/usr/sfw/bin:/usr/sfw/sbin
+
+SUPATH=/opt/csw/gnu:/opt/csw/sbin:/opt/csw/bin:/usr/sbin:/usr/bin:/usr/sfw/bin:/
+opt/solarisstudio12.4/bin:/usr/ccs/bin:/usr/local/bin:/usr/sfw/bin:/usr/sfw/sbin
+
+
+## Network ##
+
+Solaris QA had no resolv.conf and files only nsswitch.conf
+hosts and ipnodes needed dns added
+nameserver 208.67.222.222
+
