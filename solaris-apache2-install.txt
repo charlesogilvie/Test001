@@ -16,6 +16,12 @@ Change line 180 / 181
 User noaccess
 Group noaccess
 
+Change line 287
+ErrorLog "/export/logs/httpd/error_log"
+
+Change line 316
+CustomLog "/export/logs/httpd/access_log" common
+
 Uncomment line 502
 Include /etc/opt/csw/apache2/extra/httpd-ssl.conf
 
@@ -30,6 +36,9 @@ SSLProtocol -ALL +TLSv1.2
 Uncomment lines 61/62:
 SSLCipherSuite RC4-SHA:AES128-SHA:HIGH:MEDIUM:!aNULL:!MD5
 SSLHonorCipherOrder on
+
+Change line 269
+CustomLog "/export/logs/httpd/ssl_request_log"
 
 /opt/csw/sbin/apachectl
 DocumentRoot: /var/opt/csw/apache2/htdocs
