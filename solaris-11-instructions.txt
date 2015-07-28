@@ -40,3 +40,4 @@ svc:/system/name-service/switch:default> exit
 Same as Solaris 10
 Check in from solaris11dev
 Check in from solaris11qa
+Check in from solaris 11 qa Site Ox
